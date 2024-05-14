@@ -1,4 +1,5 @@
 import {useEffect, useRef, useState} from "react";
+import {Button} from "../buttons/Button.tsx";
 
 // interface Props {
 //     lap: (time: string) => void
@@ -67,10 +68,10 @@ export const Stopwatches = () => {
 
     return (
         <div className="stopwatches">
-            <button onClick={startClock}>Start</button>
-            <button onClick={stopClock}>Stop</button>
-            <button onClick={lapClock} disabled={!isRunning}>Lap</button>
-            <button onClick={resetClock}>Reset</button>
+            <Button color={"green"} onClick={startClock} text={"Start"}/>
+            <Button color={"Red"} onClick={stopClock} text={"Stop"}/>
+            <Button color={"blue"} disabled={!isRunning} onClick={lapClock} text={"Lap"}/>
+            <Button color={"black"} onClick={resetClock} text={"Reset"}/>
             <div className="display">{time(elapsedTimeMain)}</div>
             <div className="display">{time(elapsedTimeLap)}</div>
         </div>
