@@ -1,3 +1,5 @@
+import '../../styles/ButtonsView.scss';
+
 interface Props {
     onClick: () => void;
     text: string;
