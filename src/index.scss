@@ -49,8 +49,19 @@ button {
 button:hover {
   border-color: #646cff;
 }
-button:focus,
-button:focus-visible {
+
+button:disabled:hover {
+  cursor: default;
+  border-color: #1a1a1a;
+}
+
+button:disabled:active {
+  cursor: default;
+  border-color: #1a1a1a;
+  outline: #1a1a1a;
+}
+
+button:active {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
