@@ -1,9 +1,6 @@
 import {useEffect, useRef, useState} from "react";
-import {Button} from "../buttons/Button.tsx";
-
-// interface Props {
-//     lap: (time: string) => void
-// }
+import '../../styles/StopwatchView.scss';
+import {ButtonsView} from "../../views/ButtonsView.tsx";
 
 export const Stopwatches = () => {
     const startRefMain = useRef<number>(0);
@@ -39,7 +36,7 @@ export const Stopwatches = () => {
     }
 
     useEffect(() => {
-        if(isRunning) {
+        if (isRunning) {
             intervalRefMain.current = setInterval(() => {
                 setElapsedTimeMain(Date.now() - startRefMain.current)
             }, 10)
@@ -66,14 +63,23 @@ export const Stopwatches = () => {
         return `${minutes}:${seconds}:${milliseconds}`;
     };
 
-    return (
-        <div className="stopwatches">
-            <Button color={"green"} onClick={startClock} text={"Start"}/>
-            <Button color={"Red"} onClick={stopClock} text={"Stop"}/>
-            <Button color={"blue"} disabled={!isRunning} onClick={lapClock} text={"Lap"}/>
-            <Button color={"black"} onClick={resetClock} text={"Reset"}/>
-            <div className="display">{time(elapsedTimeMain)}</div>
+    return <>
+        <header className="upper-stopwatch">
+            <section className="smaller-stopwatch left">
+                <div style={{backgroundColor:"#3B6A77FF", height: "100%" ,borderTopLeftRadius: "20px",borderBottomLeftRadius: "1px" }}></div>
+                <div style={{backgroundColor:"#3B6A77FF", height: "100%"}}></div>
+                <div style={{backgroundColor:"#3B6A77FF", height: "100%"}}></div>
+                <div style={{backgroundColor:"#3B6A77FF", height: "100%"}}></div>
+            </section>
+            <section className="smaller-stopwatch">
+            <div>{time(elapsedTimeMain)}</div>
+            </section>
+        </header>
+        <div className="bigger-stopwatch">
             <div className="display">{time(elapsedTimeLap)}</div>
         </div>
-    );
+        <footer className="buttons">
+            <ButtonsView isRunning={isRunning} onStart={startClock} onStop={stopClock} onReset={resetClock} onLap={lapClock}/>
+        </footer>
+    </>
 }
