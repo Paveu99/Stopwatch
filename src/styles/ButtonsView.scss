@@ -1,0 +1,40 @@
+.button-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-button {
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen {
+  .single-button {
+    height: 30px;
+    width: 60px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .single-button {
+    height: 40px;
+    width: 80px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .single-button {
+    height: 45px;
+    width: 90px;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .single-button {
+    height: 50px;
+    width: 100px;
+  }
+}
