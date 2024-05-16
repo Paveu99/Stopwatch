@@ -6,6 +6,7 @@ function App() {
   return <div className="page">
     <StopwatchView/>
     <div>LOGS</div>
+    <LeaderBoard laps={laps}/>
   </div>
 }
 
