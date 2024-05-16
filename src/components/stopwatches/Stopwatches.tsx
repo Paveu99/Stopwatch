@@ -2,7 +2,11 @@ import {useEffect, useRef, useState} from "react";
 import '../../styles/StopwatchView.scss';
 import {ButtonsView} from "../../views/ButtonsView.tsx";
 
-export const Stopwatches = () => {
+interface Props {
+    addLap: (lapsFromChild: string[]) => void;
+}
+
+export const Stopwatches = ({addLap}: Props) => {
     const startRefMain = useRef<number>(0);
     const intervalRefMain = useRef<number | undefined>(undefined);
     const startRefLap = useRef<number>(0);
@@ -10,6 +14,7 @@ export const Stopwatches = () => {
     const [isRunning, setIsRunning] = useState<boolean>(false);
     const [elapsedTimeMain, setElapsedTimeMain] = useState<number>(0);
     const [elapsedTimeLap, setElapsedTimeLap] = useState<number>(0);
+    const [lapTimes, setLapTimes] = useState<string[]>([]);
 
     function startClock() {
         setIsRunning(true);
@@ -23,7 +28,7 @@ export const Stopwatches = () => {
 
     function lapClock() {
         if (isRunning) {
-            console.log(time(elapsedTimeLap))
+            setLapTimes([time(elapsedTimeLap),...lapTimes]);
             setElapsedTimeLap(0);
             startRefLap.current = Date.now();
         }
@@ -33,6 +38,7 @@ export const Stopwatches = () => {
         setElapsedTimeMain(0);
         setElapsedTimeLap(0);
         setIsRunning(false);
+        setLapTimes([])
     }
 
     useEffect(() => {
@@ -50,6 +56,10 @@ export const Stopwatches = () => {
             clearInterval(intervalRefLap.current)
         }
     }, [isRunning]);
+
+    useEffect(() => {
+        addLap(lapTimes)
+    }, [lapTimes]);
 
     const time = (elapsedTime: number) => {
         let minutes: number | string = Math.floor((elapsedTime / (1000 * 60)) % 60);
