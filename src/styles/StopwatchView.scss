@@ -1,0 +1,103 @@
+.main_view {
+  display: grid;
+  grid-template-rows: 3fr 7fr 3fr;
+  width: 30vw;
+  min-width: 300px;
+  max-width: 600px;
+  height: 20vw;
+  min-height: 200px;
+  max-height: 400px;
+  border: 7px solid white;
+  border-radius: 30px;
+  background-color: white;
+  align-self: end;
+}
+
+.upper-stopwatch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  background-color: grey;
+  border-radius: 30px 30px 10px 10px;
+}
+
+.smaller-stopwatch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &.left {
+    border: black 6px solid;
+    background-color: grey;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    border-radius: 30px 0 0 10px;
+  }
+}
+
+.bigger-stopwatch {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.display-name {
+  font-family: "Arial", serif;
+}
+
+.buttons {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  border-radius: 10px 10px 30px 30px;
+}
+
+@media only screen {
+  .smaller-stopwatch {
+    font-size: 25px;
+  }
+  .bigger-stopwatch {
+    font-size: 50px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .smaller-stopwatch {
+    font-size: 30px;
+  }
+  .bigger-stopwatch {
+    font-size: 60px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .smaller-stopwatch {
+    font-size: 40px;
+  }
+  .bigger-stopwatch {
+    font-size: 80px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .smaller-stopwatch {
+    font-size: 45px;
+  }
+  .bigger-stopwatch {
+    font-size: 90px;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .smaller-stopwatch {
+    font-size: 50px;
+  }
+  .bigger-stopwatch {
+    font-size: 100px;
+  }
+}
