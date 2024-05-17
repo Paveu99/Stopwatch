@@ -5,6 +5,7 @@ interface Props {
 
 export const SingleLap = ({singleLap, index}: Props) => {
     return <div className="leaderboard-row">
-        {index}.-{singleLap}
+        <div className="index">{index}.</div>
+        <div className="time">{singleLap}</div>
     </div>
 }
