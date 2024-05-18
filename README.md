@@ -9,8 +9,8 @@ In a world where every second counts, precision and simplicity are key. Welcome 
 
 # Demo
 Here is a demonstration how it works:
-- Mobile: 
-- Desktop: 
+- Mobile: https://youtube.com/shorts/iIvgWyHG9gU
+- Desktop: https://youtu.be/oqg6wR8H-go
 
 To run the application, follow these steps:
 
